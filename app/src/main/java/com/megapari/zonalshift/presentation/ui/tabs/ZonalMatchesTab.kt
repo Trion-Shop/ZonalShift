@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -56,50 +55,59 @@ fun ZonalMatchesTab(
                     items(uiState.mechanics, key = { it.id }) { mechanic ->
                         Card(
                             modifier = Modifier
-                                .width(205.dp)
+                                .width(190.dp)
                                 .clickable { onSelectMechanic(mechanic) }
                                 .border(1.dp, ShiftBorder, RoundedCornerShape(14.dp)),
                             shape = RoundedCornerShape(14.dp),
                             colors = CardDefaults.cardColors(containerColor = ShiftDarkCard)
                         ) {
                             Column(modifier = Modifier.padding(12.dp)) {
+                                Text(
+                                    text = mechanic.mechanicTitle,
+                                    fontSize = 14.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = ShiftWhite
+                                )
+                                Text(
+                                    text = mechanic.shiftArchetype,
+                                    fontSize = 10.sp,
+                                    color = ShiftRedBright
+                                )
+
+                                Spacer(modifier = Modifier.height(8.dp))
+
                                 Row(
                                     modifier = Modifier.fillMaxWidth(),
                                     horizontalArrangement = Arrangement.SpaceBetween,
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
                                     Text(
-                                        text = mechanic.mechanicTitle,
-                                        color = ShiftWhite,
-                                        fontSize = 13.sp,
-                                        fontWeight = FontWeight.Bold
+                                        text = "${mechanic.turnoverForceRatePct.toInt()}% force",
+                                        fontSize = 12.sp,
+                                        fontWeight = FontWeight.ExtraBold,
+                                        color = ShiftBlueBright
                                     )
                                     Box(
                                         modifier = Modifier
-                                            .clip(CircleShape)
+                                            .clip(RoundedCornerShape(4.dp))
                                             .background(ShiftDarkElevated)
                                             .padding(horizontal = 6.dp, vertical = 2.dp)
                                     ) {
                                         Text(
-                                            text = "${mechanic.lateralDisplacementMeters}m",
-                                            color = ShiftBlueBright,
-                                            fontSize = 10.sp,
-                                            fontWeight = FontWeight.Bold
+                                            text = "${mechanic.lateralDisplacementMeters}m slide",
+                                            fontSize = 9.sp,
+                                            fontWeight = FontWeight.Bold,
+                                            color = ShiftBlue
                                         )
                                     }
                                 }
-                                Text(
-                                    text = mechanic.shiftArchetype,
-                                    color = ShiftRedBright,
-                                    fontSize = 10.sp
-                                )
-                                Spacer(modifier = Modifier.height(4.dp))
+
+                                Spacer(modifier = Modifier.height(6.dp))
                                 Text(
                                     text = mechanic.theoreticalDescription,
-                                    color = ShiftSoftGray,
                                     fontSize = 10.sp,
-                                    maxLines = 2,
-                                    lineHeight = 13.sp
+                                    color = ShiftSoftGray,
+                                    maxLines = 1
                                 )
                             }
                         }
