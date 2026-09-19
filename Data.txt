@@ -1,0 +1,18 @@
+Application Name: Zonal Shift
+Package Name: com.megapari.zonalshift
+Activity / Launchable: com.megapari.zonalshift.MainActivity
+Target Platform: Android (compileSdk 36, targetSdk 36, minSdk 26)
+Architecture / Framework: Kotlin, Jetpack Compose, Material 3, Clean Architecture (Domain/Data/Presentation)
+
+Key Store:
+  Path: app/ZonalShift.jks
+  Alias: zonalshift
+  Store Password: Password123!
+  Key Password: Password123!
+
+Key Hash:
+  yIjB4dCzMxyTpxESZbQiLZnMHWQ=
+
+Fingerprints:
+  SHA1: C8:88:C1:E1:D0:B3:33:1C:93:A7:11:12:65:B4:22:2D:99:CC:1D:64
+  SHA256: 3B:ED:5C:62:EF:42:B3:11:6B:96:55:47:16:1B:98:4D:88:4A:F6:32:E8:88:A6:A7:90:45:0E:EF:AE:A7:5A:A9
